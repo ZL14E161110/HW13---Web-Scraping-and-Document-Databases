@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Get Mars Data</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container text-center">
+  	<div class="jumbotron text-center">
+    	<h1>Mission to Mars</h1>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+  </div>
+
+  <div class="container-fluid">
+      <div class="row mt-5 ml-5 mr-5 mb-5">
+        <div class="col-lg-10 mb-6" style="background-color: white;">
+          <div class="thumbnail">
+            <h2 class="text-success pt-4">Latest Mars News</h2>
+            <hr>
+            <h3>{{mars.news_title}}</h3>
+            <p>{{mars.news_p}}</p>
+            <br>
+          </div>
+        </div>
+      </div>
+      	
+      <div class="row mt-5 ml-5 mr-5 mb-5">
+        <div class="col-lg-6 mb-6" style="background-color: grey;">
+          <h2 class="text-success pt-4">Featured Mars Image</h2>
+          <hr>
+		  <a href={{mars.featured_image_url}}>
+            <img class="img-responsive" src={{mars.featured_image_url}} alt="Mars' Featured Image" style="width:60%"></a>
+          <br>
+        </div>
+        <div class="col-lg-5 mb-6" style="background-color: grey;">
+          <div>
+          	<h2 class="text-success pt-4">Current weather on Mars</h2>
+          	<hr>
+		  	<p>{{mars.mars_weather}}</p>
+		  </div>
+          <br>
+          <div>
+          	<h2 class="text-success pt-4">Mars Facts</h2>
+          	<hr>
+          	<table class="table table-sm table-striped table-bordered table-responsive-lg">
+          		{{mars.mars_facts}}
+          	</table>
+          </div>
+        </div>        
+      </div>
+
+	  <div class="row mt-5 ml-5 mr-5 mb-5">
+        <h2 class="text-success pt-4">Mars Hemispheres</h2>
+        <div class="col-lg-10 ml-4 mt-4" style="background-color: white;">
+          <hr>
+          {% for item in mars.hemisphere_image_urls %}        
+          <div class="col-md-5 text-center ml-5">
+            <h5 class="text-success pt-4 pl-4">{{item.title}}</h5>
+            <a href={{item.linka}}>
+              <img class="img-responsive" src="item.linka" alt={{item.title}} style="width:100%">
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+        <hr>
+      </div>
+    </div>
+</body>
+
+</html>
