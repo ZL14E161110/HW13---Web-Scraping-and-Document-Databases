@@ -8,27 +8,24 @@ from splinter.exceptions import ElementDoesNotExist
 import time
 
 
-def init_browser():
-    # Execute Chromedriver
-    executable_path = {'executable_path': 'chromedriver.exe'}
-    browser = Browser('chrome', **executable_path, headless=False)
-
-
 # Define scrape function
 def scrape():
     # Create a library that holds all the Mars' Data
     mars_library = {}
+    # Use splinter to navigate the JPL's Featured Space Image and scrape the current Featured Mars Image url (https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars)
+    # Execute Chromedriver
+    executable_path = {'executable_path': 'chromedriver.exe'}
+    browser = Browser('chrome', **executable_path, headless=False)
     # #### NASA Mars News
     # We will scrape the lastest News Title and Paragragh Text from NASA Mars News Site(https://mars.nasa.gov/news/).
     # URL of page to be scraped
     url1 = 'https://mars.nasa.gov/news/?page=0&per_page=40&order=publish_date+desc%2Ccreated_at+desc&search=&category=19%2C165%2C184%2C204&blank_scope=Latest'
-    # Retrieve page with the requests module
-    response = requests.get(url1)
-
+    #Visit the page using the browser
+    browser.visit(url1)
+    # assign html content
+    html = browser.html
     # Create a Beautiful Soup object
-    soup1 = bs(response.text, "html5lib")
-    type(soup1)
-
+    soup1 = bs(html, "html5lib")
     # Extract the text from the class="content_title" and clean up the text use strip
     news_title = soup1.find_all('div', class_='content_title')[0].find('a').text.strip()
     # Extract the paragraph from the class="rollover_description_inner" and clean up the text use strip
@@ -39,8 +36,6 @@ def scrape():
 
 
     # #### JPL Mars Space Images - Featured Image
-    # Use splinter to navigate the JPL's Featured Space Image and scrape the current Featured Mars Image url (https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars)
-    browser = init_browser()
     # URL of page to be scraped
     url2 = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     #Visit the page using the browser
