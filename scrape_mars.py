@@ -8,6 +8,12 @@ from splinter.exceptions import ElementDoesNotExist
 import time
 
 
+def init_browser():
+    # Execute Chromedriver
+    executable_path = {'executable_path': 'chromedriver.exe'}
+    browser = Browser('chrome', **executable_path, headless=False)
+
+
 # Define scrape function
 def scrape():
     # Create a library that holds all the Mars' Data
@@ -34,9 +40,7 @@ def scrape():
 
     # #### JPL Mars Space Images - Featured Image
     # Use splinter to navigate the JPL's Featured Space Image and scrape the current Featured Mars Image url (https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars)
-    # Execute Chromedriver
-    executable_path = {'executable_path': 'chromedriver.exe'}
-    browser = Browser('chrome', **executable_path, headless=False)
+    browser = init_browser()
     # URL of page to be scraped
     url2 = 'https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars'
     #Visit the page using the browser
