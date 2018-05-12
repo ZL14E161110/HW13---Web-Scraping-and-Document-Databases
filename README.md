@@ -467,11 +467,10 @@ The next step is to use MongoDB and Flask templating to create a new HTML page t
 
 You will require the following in order to successfully run the python script:
 1. Download MongoDB
-2. Set up MongoDb: Before run the script, please open "Command Prompt" and type:
+2. Set up MongoDb: Before run the script. To activate the MongoDB, please open "Command Prompt" and type:
 ```bash
 $ mongod
 ```
-to activate the MongoDB.
 3. Please make sure you have the following requirements:
  * flask
  * Flask-Pymongo
@@ -751,3 +750,8 @@ if __name__ == "__main__":
     app.run()
 ```
 ---
+### 4. End Product Showcase
+The screenshot below is the end product once you successfully scrape the relevant data:
+
+![web1.png](Images/web1.png)
+![web2.png](Images/web2.png)
