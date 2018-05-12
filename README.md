@@ -1,6 +1,8 @@
 # 13---Web-Scraping-and-Document-Databases
 
 
+
+
 ## Step 1 Scraping
 
 This task will use BeautifulSoup,Pandas, and Requests and Splinter to scraping Mars related information 
@@ -10,19 +12,9 @@ This task will use BeautifulSoup,Pandas, and Requests and Splinter to scraping M
 # Dependencies
 from bs4 import BeautifulSoup as bs
 import requests
-import pymongo
 import pandas as pd
 from splinter import Browser
-from splinter.exceptions import ElementDoesNotExist
 import time
-
-```
-
-
-```python
- # Initialize PyMongo to work with MongoDBs
-conn = 'mongodb://localhost:27017'
-client = pymongo.MongoClient(conn)
 ```
 
 #### NASA Mars News
