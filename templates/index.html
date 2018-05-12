@@ -12,18 +12,19 @@
 
 <body>
   <div class="container text-center">
-  	<div class="jumbotron text-center">
+  	<div class="jumbotron text-center ml-5 mt-5 mr-5 mb-5">
     	<h1>Mission to Mars</h1>
         <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
   </div>
 
-  <div class="container-fluid">
-	<div class="row">
-	  <div class="col-lg-12 mb-6" style="background-color:lightgrey;">
+  <div class="container text-center">
+	<div class="row ml-5 mt-5 mr-5 mb-5">
+	  <div class="col-lg-12 mb-6  border border-secondary" style="background-color:lightgrey;">
 	    <div class="thumbnail">
 	      <h2 class="text-primary pt-4">Latest Mars News</h2>
 	      <hr>
-	      <h3>{{mars.news_title}}</h3>
+	      <h4>{{mars.news_title}}</h4>
 	      <p>{{mars.news_p}}</p>
 	      <br>
 	    </div>
@@ -31,23 +32,21 @@
 	</div>
   </div>
       
-  <div class="container-fluid">	
-    <div class="row text-center">
-      <div class="col-lg-6 mb-6" style="background-color:lightgrey;">
+  <div class="container text-center">	
+    <div class="row text-center ml-5 mt-5 mr-5 mb-5">
+      <div class="col-lg-6 mb-6  border border-secondary" style="background-color:lightgrey;">
         <h2 class="text-primary pt-4">Featured Mars Image</h2>
         <hr>
 		<a href={{mars.featured_image_url}}>
-          <img class="img-responsive" src={{mars.featured_image_url}} alt="Mars' Featured Image" style="width:60%"></a>
+          <img class="img-responsive" src={{mars.featured_image_url}} alt="Mars' Featured Image" style="width:100%"></a>
       </div>
       <hr>
       <br>
-      <div class="col-lg-6 mb-6" style="background-color:lightgrey;">
-        <div>
-       	  <h2 class="text-primary pt-4">Current weather on Mars</h2>
-          <hr>
-		  <p>{{mars.mars_weather}}</p>
-		</div>
-        <br>
+      <div class="col-lg-6 mb-6 border border-secondary" style="background-color:lightgrey;">
+       	<h2 class="text-primary pt-4">Current weather on Mars</h2>
+        <hr>
+		<p>{{mars.mars_weather}}</p>
+		<br>
         <div>
           <h2 class="text-primary pt-4">Mars Facts</h2>
           <hr>
@@ -61,19 +60,18 @@
   <hr>
   <p></p>
   <br>
-  <div class="container-fluid">
-	<div class="row text-center">
-      <div class="col-lg-12" style="background-color:lightgrey;">
+  <div class="container text-center">
+	<div class="row ml-5 mt-5 mr-5 mb-5">
+      <div class="col-md-12 border border-secondary" style="background-color:lightgrey;">
       	<h2 class="text-primary pt-4 text-center">Mars Hemispheres</h2>
-        <hr>
-        <p></p>
-        {% for item in mars.hemisphere_image_urls %}        
-        <div class="col-md-6 text-center ml-5">
-          <h5 class="text-info pt-4 pl-4">{{item.title}}</h5>
-          <a href={{item.linka}}>
-            <img class="img-responsive" src="item.linka" alt={{item.title}} style="width:100%">
-          </a>
-        </div>
+      </div>
+      {% for item in mars.hemisphere_image_urls %}   
+      <div class="col-md-6 border border-secondary" style="background-color:lightgrey;">
+        <h5 class="text-info">{{item.title}}</h5>
+        <a href={{item.img_url}}>
+          <img class="img-responsive" src={{item.img_url}} alt={{item.title}} style="width:100%">
+        </a>
+      </div>
         {% endfor %}
       </div>
       <hr>
