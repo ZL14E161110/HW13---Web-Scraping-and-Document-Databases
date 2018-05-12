@@ -753,5 +753,5 @@ if __name__ == "__main__":
 ### 4. End Product Showcase
 The screenshot below is the end product once you successfully scrape the relevant data:
 
-![web1.png](Images/web1.png)
-![web2.png](Images/web2.png)
+![web1.png](image/web1.png)
+![web2.png](image/web2.png)
